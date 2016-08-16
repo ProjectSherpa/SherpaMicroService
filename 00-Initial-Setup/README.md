@@ -1,4 +1,5 @@
 #Setup Go 
+![GoAviator](Gologo.png)
 
 Thank you for joining the the course. The first steps is to get your environment setup.
 
