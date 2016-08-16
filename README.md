@@ -1,24 +1,16 @@
-Base Header Level: 1
-Title: GoRestFullAPI
-Author: scalabilitySherpa.com
 
-ScalibilitySherpa.com
 
+#ScalibilitySherpa.com
+##MicroService in Google Golang
 
 
 ![][mountainlogo.png]
+![][team.png]
 
-
-![][ScreenShot2016-08-15at3.54.12PM.png]
-
-Google GO Backend 
-
-Problem
+##Problem
 Scalabilitysherpa.com is expanding its footprint and needs expand their infrastructure. Currently the website is serving videos using a tightly coupled MERN stack. The company would like a more modern approach to persist data, while at he same time fit within their current front end. 
 
-![][ScreenShot2016-08-15at2.05.14PM.png]
-
-
+![team][ScreenShot2016-08-15at2.05.14PM.png]
 
 Users- The website needs to track each individual users progress throughout the website, if they are paid or free content only. 
 
@@ -31,15 +23,15 @@ User login is handled by a third party OATH service and no passwords or personal
 
 ![][ScreenShot2016-08-15at4.04.17PM.png]
 
-Current Infrastructure
+##Current Infrastructure
 Tightly coupled react framework with MYSQL backend. 
 
-![][ScreenShot2016-08-15at5.23.12PM.png]
+![][current.png]
 
-Proposed Solution
+##Proposed Solution
 Restfull endpoint. 
 
-![][ScreenShot2016-08-15at5.28.40PM.png]
+![future.png][future.png]
 
 RESTful API ENDPOINTS
 http://api.scalabilitysherpa.com/api/v1/
@@ -48,8 +40,8 @@ Resource , get, post, put, delete
 /Users, returns list of all users, create new user, bulk update users, delete all
 /Users/11/ , returns a user, 405 (not allowed), updates user, deletes user 
 ![][ScreenShot2016-08-15at5.25.35PM.png]
-Examples
-How to retrieve all users
+###Examples
+####How to retrieve all users
 1
 2
 3
@@ -61,7 +53,7 @@ https://api.scalabilitysherpa.com/api/v1/users
 
 
 
-How to retrieve a single user
+####How to retrieve a single user
 1
 2
 3
@@ -72,7 +64,7 @@ CURL –X POST \
 https://api.scalabilitysherpa.com/api/v1/user/2863
 
 
-Partial Answers
+####Partial Answers
 
 Retrieve the first user with first name matching xyz 
 1
@@ -93,16 +85,16 @@ GET /users?firstname=xyz
 “Videos”:”[002,004,0783,0889]”
 }
 
-Sorted Queries
+####Sorted Queries
 Add sorted queries capability to the endpoint. 
 
 
-Searching
+####Searching
 Add searching capability to the endpoint.
 
 
 
-Security 
+###Security 
 
 	1.	 OAuth2 to secure your API endpoint. 
 
@@ -114,31 +106,28 @@ Maybe we can implement the following:
 	•	OAuth2 – https://oauth2.{fakecompany}.com
 	•	Developer portal – https://developers.{fakecompany}.com
 
-RESTful API Resources
+###RESTful API Resources
 https://en.wikipedia.org/wiki/Representational_state_transfer
 http://blog.mwaysolutions.com/2014/06/05/10-best-practices-for-better-restful-api/
 
 http://blog.octo.com/en/design-a-rest-api/
 
-Backend 
+###Backend 
 Written in GO to take advantage of concurrency, speed, and reliability. 
 
-Database Selection 
+###Database Selection 
 
 Current database is in MYSQL but there is room to choose another one since the number of videos and users is small. 
 
 
-
-![databases.png](databases.png)![][redislogo.png]
-
-Schema Design
+##Schema Design
 
 
 Users -
 ![][databaseplaceholder.png]
 Videos -
 
-Database Backup 
+###Database Backup 
 
 -Automatic backups
 -Send email to admin if there are database issues 
@@ -149,34 +138,33 @@ Scalability
 	3.	DNS
 	4.	Monitoring
 
-
-![][ScreenShot2016-08-15at4.01.56PM.png]
-
-Resources
+###Resources
 
 Cloud Native Go: Building Web Applications and Microservices for the Cloud with Go and React
 
-Developer Portal
+###Developer Portal
 https://developers.scalabilitysherpa.com
 
 Developer portal adds a location for developers share, update and document code, API end points , any idiomatic quirks etc.
+![team][readmeimages/ScreenShot2016-08-15at4.01.56PM.png][mountainlogo.png]: readmeimages/mountainlogo.png
+[team.png]: readmeimages/team.png
+[current.png]: readmeimages/current.png
+[future.png]: readmeimages/future.png 
 
-[mountainlogo.png]: mountainlogo.png
+[ScreenShot2016-08-15at2.05.14PM.png]: readmeimages/ScreenShot2016-08-15at2.05.14PM.png
 
-[ScreenShot2016-08-15at3.54.12PM.png]: ScreenShot2016-08-15at3.54.12PM.png width=3098px height=839px
+[mountainlogo.png]: readmeimages/mountainlogo.png
 
-[ScreenShot2016-08-15at2.05.14PM.png]: ScreenShot2016-08-15at2.05.14PM.png
+[ScreenShot2016-08-15at4.04.17PM.png]: readmeimages/ScreenShot2016-08-15at4.04.17PM.png
 
-[ScreenShot2016-08-15at4.04.17PM.png]: ScreenShot2016-08-15at4.04.17PM.png
+[ScreenShot2016-08-15at5.23.12PM.png]: readmeimages/ScreenShot2016-08-15at5.23.12PM.png width=262px height=192px
 
-[ScreenShot2016-08-15at5.23.12PM.png]: ScreenShot2016-08-15at5.23.12PM.png width=262px height=192px
+[ScreenShot2016-08-15at5.28.40PM.png]: readmeimages/ScreenShot2016-08-15at5.28.40PM.png width=328px height=199px
 
-[ScreenShot2016-08-15at5.28.40PM.png]: ScreenShot2016-08-15at5.28.40PM.png width=328px height=199px
+[ScreenShot2016-08-15at5.25.35PM.png]: readmeimages/ScreenShot2016-08-15at5.25.35PM.png
 
-[ScreenShot2016-08-15at5.25.35PM.png]: ScreenShot2016-08-15at5.25.35PM.png
+[redislogo.png]: readmeimages/redislogo.png width=226px height=71px
 
-[redislogo.png]: redislogo.png width=226px height=71px
+[databaseplaceholder.png]: readmeimages/databaseplaceholder.png width=344px height=246px
 
-[databaseplaceholder.png]: databaseplaceholder.png width=344px height=246px
-
-[ScreenShot2016-08-15at4.01.56PM.png]: ScreenShot2016-08-15at4.01.56PM.png width=1494px height=993px
+[ScreenShot2016-08-15at4.01.56PM.png]: readmeimages/ScreenShot2016-08-15at4.01.56PM.png width=1494px height=993px
