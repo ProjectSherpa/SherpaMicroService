@@ -1,25 +1,24 @@
 
 
 #ScalibilitySherpa.com
-##MicroService in Google Golang
+##How to create a GO Microservice in 7 days 
 
 
 ![][mountainlogo.png]
-![][team.png]
+
 
 ##Problem
-Scalabilitysherpa.com is expanding its footprint and needs expand their infrastructure. Currently the website is serving videos using a tightly coupled MERN stack. The company would like a more modern approach to persist data, while at he same time fit within their current front end. 
+Scalabilitysherpa.com is expanding its footprint and they need a robust infrastructure. Currently the website is serving videos using a tightly coupled MERN stack. The company would like a more modern approach to persist data. 
 
 ![team][ScreenShot2016-08-15at2.05.14PM.png]
 
-Users- The website needs to track each individual users progress throughout the website, if they are paid or free content only. 
+1.	Users- The website needs to track each individual users progress throughout the website, if they are paid or free content only. 
 
-Videos - Videos should contain a title, location of links , number of views.
+2.	Videos - Videos should contain a title, location of links , number of views.
 
-Operational restrictions: The database needs to be secure, backups need to be provided as part of this service infrastructure change. 
+3. Operational restrictions: The database needs to be secure, backups need to be provided as part of this service infrastructure change. 
 
-
-User login is handled by a third party OATH service and no passwords or personal information should live in the Database. 
+4. Login should be handled by a third party oath 
 
 ![][ScreenShot2016-08-15at4.04.17PM.png]
 
@@ -29,7 +28,7 @@ Tightly coupled react framework with MYSQL backend.
 ![][current.png]
 
 ##Proposed Solution
-Restfull endpoint. 
+RESTfull Microservice
 
 ![future.png][future.png]
 
@@ -112,12 +111,7 @@ http://blog.mwaysolutions.com/2014/06/05/10-best-practices-for-better-restful-ap
 
 http://blog.octo.com/en/design-a-rest-api/
 
-###Backend 
-Written in GO to take advantage of concurrency, speed, and reliability. 
 
-###Database Selection 
-
-Current database is in MYSQL but there is room to choose another one since the number of videos and users is small. 
 
 
 ##Schema Design
