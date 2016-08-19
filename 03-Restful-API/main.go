@@ -16,22 +16,18 @@ import (
 	"github.com/gorilla/mux"
 	"log"
 	"net/http"
-	// "strings"
 )
-
-// var usersTest = `{"users":[{"userid":1,"first":"Quin","last":"Kinser","email":"quinkinser@gmail.com","username":"quink","lessonsCompleted":["lid1","lid2","lid3"]},{"userid":2,"first":"Wayne","last":"Adams","email":"quinkinser@gmail.com","username":"wayney","lessonsCompleted":["lid1","lid2"]},{"userid":3,"first":"Jeremy","last":"Toce","email":"quinkinser@gmail.com","username":"toasty","lessonsCompleted":["lid1"]}]}`
 
 var usersTest = `[{"userid":1,"first":"Quin","last":"Kinser","email":"quinkinser@gmail.com","username":"quink","lessonsCompleted":["lid1","lid2","lid3"]},{"userid":2,"first":"Wayne","last":"Adams","email":"quinkinser@gmail.com","username":"wayney","lessonsCompleted":["lid1","lid2"]},{"userid":3,"first":"Jeremy","last":"Toce","email":"quinkinser@gmail.com","username":"toasty","lessonsCompleted":["lid1"]}]`
 
-type userStruct struct {
-	userid           int
-	first            string
-	last             string
-	email            string
-	username         string
-	lessonsCompleted []string
+type userStruct []struct {
+	Userid int `json:"userid"`
+	First string `json:"first"`
+	Last string `json:"last"`
+	Email string `json:"email"`
+	Username string `json:"username"`
+	LessonsCompleted []string `json:"lessonsCompleted"`
 }
-
 type PublicKey struct {
 	Id  int
 	Key string
@@ -54,25 +50,14 @@ func listAllUsers(w http.ResponseWriter, r *http.Request) {
 // Method: GET
 
 func returnUser(w http.ResponseWriter, r *http.Request) {
-	// urlPart := strings.Split(r.URL.Path, "/")
-	// bytes := []byte(usersTest)
+  users := userStruct{} // creates a go object from userStruct
+	json.Unmarshal([]byte(usersTest), &users) // transforms json(bytes) into the users go object
 
-	// // parseTest, _ := json.Marshal(usersTest)
-	// users := make([]userStruct, 0)
-	// json.Unmarshal(bytes, &users)
+  // search for the user you want
 
-	// var first = users[:1]
-
-	// b, _ := json.Marshal(first)
-	// s := string(b)
-
-	// // fmt.Printf(users)
-	// fmt.Fprint(w, "found me the first user ", s)
-	keysBody := []byte(`[{"id": 1,"key": "-"},{"id": 2,"key": "-"},{"id": 3,"key": "-"}]`)
-	keys := make([]PublicKey, 0)
-	json.Unmarshal(keysBody, &keys)
-	fmt.Printf("%#v", keys)
-
+  b, _ := json.Marshal(users[0]) // transform the user object into json bytes
+  s := string(b) // transforms json bytes into string
+  fmt.Fprint(w, "found me the first user ", s)
 }
 
 // markLesson
