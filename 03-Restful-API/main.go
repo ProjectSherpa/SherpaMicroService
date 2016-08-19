@@ -59,7 +59,7 @@ func returnUser(w http.ResponseWriter, r *http.Request) {
 
 	b, _ := json.Marshal(users[0]) // transform the user object into json bytes
 	s := string(b)                 // transforms json bytes into string
-	fmt.Fprint(w, "found me the first user ", s)
+	fmt.Fprint(w, s)
 }
 
 // markLesson
