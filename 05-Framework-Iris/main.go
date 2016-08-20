@@ -14,5 +14,11 @@ func hi(ctx *iris.Context) {
 }
 
 func developerPortal(ctx *iris.Context) {
-	ctx.Render("developerportal.html", struct{ Name string }{Name: "iris"})
+
+	markdownContents := `## Developer Portal
+Golang is cool
+Features
+--------`
+
+	ctx.Markdown(iris.StatusOK, markdownContents)
 }
