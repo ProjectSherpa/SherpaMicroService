@@ -1,0 +1,15 @@
+version: v1.0
+projects:
+- app_name: main
+  app_path: /
+  app_main: main.go
+  app_run: true
+  app_bin: true
+  app_watcher:
+    paths:
+    - /
+    ignore_paths:
+    - vendor
+    - bin
+    exts:
+    - .go

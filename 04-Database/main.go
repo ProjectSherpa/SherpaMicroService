@@ -62,6 +62,7 @@ func returnUser(w http.ResponseWriter, r *http.Request) {
 }
 
 func addUser() {
+
 	db, err := sql.Open("mysql",
 		"root:sherpa@tcp(127.0.0.1:3306)/sherpa")
 	if err != nil {
@@ -69,17 +70,20 @@ func addUser() {
 	}
 	defer db.Close()
 
-	res, err := db.Query("INSERT into users (first, last, email, username, lessonsCompleted)values ('Wayne', 'Adams', 'wadams19@gmail.com', 'wadams', 'all')")
+	stmt, err := db.Prepare("INSERT into users (first, last, email, username, lessonsCompleted)values (?, ?, ?, ?, ?)")
 	if err != nil {
 		log.Fatal(err)
 	}
-	defer res.Close()
+	res, err := stmt.Exec("Jeremy", "Toce/Christian", "jtmoneymaker.cashmoney.com", "ladykilla", "the universe")
+	if err != nil {
+		log.Fatal(err)
+	}
 
-	// lastId, err := res.LastInsertId()
-	// if err != nil {
-	// 	log.Fatal(err)
-	// }
-	// log.Println(lastID)
+	lastId, err := res.LastInsertId()
+	if err != nil {
+		log.Fatal(err)
+	}
+	log.Printf("Id = %d", lastId)
 }
 
 // Reading from MYSQL table and printing all rows to console
@@ -141,6 +145,24 @@ func mysqlTest() {
 			panic(err.Error()) // proper error handling instead of panic in your app
 		}
 	}
+
+}
+
+// Return all users from database to client
+//GET /users/
+func returnAllUsers() {
+
+}
+
+// Return all users from database to client
+// GET /users/{userid}
+func returnSingleUser() {
+
+}
+
+// Return the newly created user from the database to the client
+// POST /users/
+func returnNewUser() {
 
 }
 
