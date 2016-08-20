@@ -21,7 +21,7 @@ import (
 )
 
 //mock data to test API functionality
-var usersTest = `[{"userid":1,"first":"Quin","last":"Kinser","email":"quinkinser@gmail.com","username":"quink","lessonsCompleted":["lid1","lid2","lid3"]},{"userid":2,"first":"Wayne","last":"Adams","email":"quinkinser@gmail.com","username":"wayney","lessonsCompleted":["lid1","lid2"]},{"userid":3,"first":"Jeremy","last":"Toce","email":"quinkinser@gmail.com","username":"toasty","lessonsCompleted":["lid1"]}]`
+var usersTest = `[{"userid":9,"first":"Quin","last":"Kinser","email":"quinkinser@gmail.com","username":"quink","lessonsCompleted":["lid1","lid2","lid3"]},{"userid":2,"first":"Wayne","last":"Adams","email":"quinkinser@gmail.com","username":"wayne1","lessonsCompleted":["lid1","lid2"]},{"userid":3,"first":"Jeremy","last":"Toce","email":"quinkinser@gmail.com","username":"toasty","lessonsCompleted":["lid1"]}]`
 
 //Array of structs representing our data
 type userStruct []struct {
