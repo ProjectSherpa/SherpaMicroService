@@ -4,9 +4,6 @@ Not all frameworks are created equal, at the end of the day the choice of framew
 
 
 
-###Top most popular framework:
-1.todo
-2.
 
 
 ##We will be using Iris
@@ -15,3 +12,9 @@ Known as the fastest framework
 
 
 
+###Authentication
+
+##example of authentication in GO
+
+
+bootcampconfidential@gmail.com

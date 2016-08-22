@@ -22,3 +22,10 @@ ul {
 					    li a:hover {
 						        background-color: #111;
 						}
+
+img {
+     border-radius: 8px;
+    margin: auto;
+
+    width: 50%;
+}
