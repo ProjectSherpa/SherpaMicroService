@@ -32,7 +32,7 @@ func (u VideoAPI) GetBy(id string) { // id equals to u.Param("param1")
 
 //Get videos and return in JSON format
 func getVideos(ctx *iris.Context) {
-	ctx.Render("developerportal.html", struct{ Name string }{Name: "iris"})
+	ctx.Render("videosdatabase.json", struct{ Name string }{Name: "iris"})
 }
 
 /**************/
@@ -47,5 +47,6 @@ func main() {
 	iris.Get("/", developerPortal)
 
 	iris.API("/videos", VideoAPI{}) //handles /videos endpoint
+	iris.Get("/videos2", getVideos) //handles /videos endpoint
 	iris.Listen(":8080")
 }
